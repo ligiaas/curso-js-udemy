@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Objetos Nativos do JS</title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+</head>
+<body>
+	<div class="container">
+		<h1>Objeto Event</h1>
+		<p>Objeto passado por parâmetro para a função que foi alterada nos fornecendo várias informações adicionais sobre o evento em si. Esto objeto varia de acordo com o tipo do evento.</p>
+		<div id="d1" style="background: #ffcccc;padding: 25px;">
+			Texto dentro da div.
+			<span id="d1span" style="background: #ccffff;">Texto dentro do span.</span>
+		</div>
+	</div>
+	<script>
+
+		var $d1 = document.querySelector('#d1');
+		var $d1Span = document.querySelector('#d1 span');
+
+		$d1.addEventListener('click', function(e){
+			console.log('click no $d1');
+			e.stopPropagation(); // para a propagação do evento
+		});
+
+		// Obs: quando vc passa um parâmetro dentro da função atrelada do evento, essa função se torna o objeto do evento e traz várias informações do evento.
+		document.addEventListener('click', function(e){
+			console.log('clicou no document');
+			console.log(e.currentTarget); // currentTarget é o elemento a qual foi atrelado o evento, nesse caso o document.
+			console.log(this); // this é sempre o dono do evento.
+			console.log(e.target); // target é quem disparou o evento
+		})
+
+		$d1Span.addEventListener('click', function(){
+			console.log('click no $d1Span');
+		});
+
+	</script>
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Objetos Nativos do JS</title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+</head>
+<body>
+	<div class="container">
+		<h1>Curso Javascript Completo 2018</h1>
+	</div>
+	<script>
+		// function Caneta(preco, cor) {
+		// 	this.preco = preco || 1;
+		// 	this.cor = cor || 'black';
+		// 	this.mudarCor = function(cor) {
+		// 		this.cor = cor;
+		// 	}
+		// }
+
+		// var caneta1 = new Caneta(3, 'yellow');
+
+		function Caneta(preco, cor) { // função construtora começa com letra maiúscula.
+			// a palavra this é usada para salvar o valor de uma propriedade no momento que ela esta sendo criada.
+
+			// privado
+			var color = cor || 'black';
+			this.preco = preco || 1;
+
+			// publicas
+			this.mudaCor = function(cor) {
+				if(cor !== 'red' && cor !== 'blue' && cor !== 'black'){
+					return ("cor não autorizada");
+				}
+				color = cor;
+				return ("cor alterada com sucesso");
+			}
+			this.verCor = function() {
+				return color;
+			}
+		}
+
+		var caneta1 = new Caneta();
+	</script>
+</body>
+</html>

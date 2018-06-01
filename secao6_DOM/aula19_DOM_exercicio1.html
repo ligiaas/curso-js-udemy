@@ -1,0 +1,51 @@
+<!doctype html>
+<html>
+    <head>
+        <title>Curso Javascript Completo 2018</title>
+        <meta charset="utf-8">
+    </head>
+    <body>
+        <h1>Curso Javascript Completo 2018</h1>
+        
+        <!-- Em js, sempre que quiser ter acesso ao que foi escrito num input, num formulário, eu pego este valor através do ATRIBUTO value da tag html -->
+        <input type="text" name="txtNome" id="txtNome" value="" placeholder="Digite seu nome"> <button onclick="escreve()">enviar</button>
+        <div id="msg"></div>
+        
+        <script type="text/javascript">
+            var txtNome2 = document.querySelector('#txtNome');
+            function escreve() {
+                var nome = txtNome2.value;
+                document.querySelector('#msg').innerHTML = "Bem-vindo, <b>" + nome + "</b>.";
+               
+            }
+            // // ou assim: declara a var fora da função pra ter o escopo global
+            // var txtNome2;
+            // (function() {
+            //     'use strict';
+            //     txtNome2 = document.querySelector('#txtNome'); // txtNome2 está aguardando uma referência do meu input
+            //     var nome = txtNome2.value;
+            //     document.querySelector('#msg').innerHTML = "Bem-vindo, <b>" + nome + "</b>";
+            //     // document.getElementById('msg').textContent = "Bem-vindo, " +nome;
+            // })()
+
+            // ou assim declara a variavel sem a palavra reservada var
+            // (function() {
+            //     txtNome2 = document.querySelector('#txtNome');
+            // })()
+
+            // ou assim insere dentro dentro do elemento do browser
+            // (function() {
+            //     window.txtNome2 = document.querySelector('#txtNome');
+            // })()
+
+            // ou assim comenta a função e a var fica com escopo global
+            // (function() {
+                // txtNome2 = document.querySelector('#txtNome');
+                // var nome = 
+                // .innerHTML = "Bem-vindo, <b>" + nome + "</b>";
+                // document.getElementById('msg').textContent = "Bem-vindo, " +nome;
+            // })()
+        </script>
+        
+    </body>
+</html>

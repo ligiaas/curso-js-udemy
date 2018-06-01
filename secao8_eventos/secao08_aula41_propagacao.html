@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Objetos Nativos do JS</title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+</head>
+<body>
+	<div class="container">
+		<h1>Propagação de eventos</h1>
+		<p>É a capacidade dos eventos de percorrerem a estrutura do HTML, desde o elemento original até o nível mais alto (numa página web,é o body).</p>
+		<div id="d1" style="background: #ffcccc;padding: 25px;">
+			Texto dentro da div.
+			<span id="d1span" style="background: #ccffff;">Texto dentro do span.</span>
+		</div>
+	</div>
+	<script>
+
+		var $d1 = document.querySelector('#d1');
+		var $d1Span = document.querySelector('#d1 span');
+
+		$d1.addEventListener('click', function(){
+			console.log('click no $d1');
+		}, false);
+
+		document.addEventListener('click', function(){
+			console.log('clicou no document');
+		}, true) // Obs: não é costume informar o 3º valor do evento (boolean) mas se ele for informado prevalecerá o valor do nível mais alto, no caso, o body. Mesmo se a div ou span especificar valores diferentes.
+
+		$d1Span.addEventListener('click', function(){
+			console.log('click no $d1Span');
+		}, false);
+
+	</script>
+</body>
+</html>

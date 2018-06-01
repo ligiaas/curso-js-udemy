@@ -1,0 +1,39 @@
+<!doctype html>
+<html>
+    <head>
+        <title>Curso Javascript Completo 2018</title>
+        <meta charset="utf-8">
+    </head>
+    <body>
+        <h1>Curso Javascript Completo 2018</h1>
+        <input type="text" name="txtNome" id="txtNome" value="">
+        
+        <script type="text/javascript">
+            var $txt = document.querySelector('#txtNome');
+            var nome = "Lígia ";
+            var sobrenome = "Almeida Silva";
+
+            document.querySelector('#txtNome').value = nome + sobrenome;
+            document.querySelector('#txtNome').disabled = true; // o input fica desabilitado a partir do comando do js.
+            //document.querySelector('#txtNome').readonly = true; // o input deveria ficar somente leitura a partir do comando do js mas funciona diferente.
+
+            // dica
+            // tanto as prop .value, .textContent e .innerHTML servem para definir um novo valor ou recuperar o valor atual.
+            // HTML:
+            // <input type="text" id="nome>"
+
+            // Javascript
+            // define um novo valor
+            // document.querySelector("#nome").value = "Daniel"
+
+            // HTML:
+            // <input type="text" id="nome>"
+
+            // Javascript
+            // recupera o value do input...
+            // var valor = document.querySelector("#nome").value
+            //  ... e armazena a string na variavel valor
+        </script>
+        
+    </body>
+</html>

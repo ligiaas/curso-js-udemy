@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Curso Javascript Completo 2018</title>
+        <meta charset="utf-8">
+        <script>
+            (function(){
+                function calcularIMC(peso, altura, callback){
+                    var imc2 = peso / (altura * altura); 
+                    
+                    if(callback && typeof callback === 'function'){
+                        return callback(imc2); 
+                    }
+                    console.log('nao passou callback')
+                    return imc2;
+                }
+                
+                function classificaIMC(imc2){
+                    if(imc2 <= 16.9 ){
+                        return 'muito abaixo do peso';
+                    } else if (imc2 <= 18.4){
+                        return 'abaixo do peso';
+                    } else if(imc2 <= 24.9){
+                        return 'normal';
+                    } else if(imc2 <= 29.9) {
+                        return 'acima do peso';
+                    } else if(imc2 <= 34.9){
+                        return 'obesidade 1';
+                    } else if(imc2 <= 40){
+                        return 'obesidade 2';
+                    } else {
+                        return 'obesidade 3';
+                    }
+                }
+                
+                var peso = 70;
+                var altura = 1.68;
+                
+                var imc1 = calcularIMC(peso, altura);
+                var imc3 = classificaIMC(imc1);
+                
+                console.log('valor IMC: ', imc1);
+                console.log('classificação IMC: ', imc3);
+            })()
+            
+        </script>
+    </head>
+    <body>
+        <h1>Curso Javascript Completo 2018</h1> 
+    </body>
+</html>

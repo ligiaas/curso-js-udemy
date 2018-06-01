@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Curso Javascript Completo 2018</title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+</head>
+<body>
+	<div class="container">
+		<h1>Validação de Formulário</h1>
+		<h2>Problema</h2>
+		<p>Efetuar o mesmo exemplo anterior, mas agora não mais validando no click do botão, mas sim no submit do formulário.</p>
+		<form action="#">
+			<label for="txtUser">Usuário</label>
+			<input type="text" id="txtUser" name="user">
+			<br/>
+			<label for="txtPass">Senha</label>
+			<input type="password" id="txtPass" name="pass">
+			<br/>
+			<button type="submit" id="btn">Logar</button>
+		</form>
+	</div>
+	<script>
+		(function() {
+			'use strict';
+			var $txtUser = document.getElementById('txtUser');
+			var $txtPass = document.getElementById('txtPass');
+			var $btn = document.getElementById('btn');
+
+			$btn.addEventListener('click', function(){
+				if(!$txtUser.value || $txtPass.value === ""){
+					alert('Preencha todos os campos');
+				}
+			});
+		})()
+	</script>
+</body>
+</html>
+
+
+
+
+
+

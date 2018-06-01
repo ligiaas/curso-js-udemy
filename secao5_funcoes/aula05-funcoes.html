@@ -1,0 +1,89 @@
+<!doctype html>
+<html>
+    <head>
+        <title>Curso Javascript Completo 2018</title>
+        <meta charset="utf-8">
+        
+        <script>
+            
+            //literal
+            function somar(n1, n2) {
+                // corpor da funcao
+                return n1 + n2;
+            } //na função literal vc não precisa colocar ; no final
+            
+            var soma = somar(10, 20);
+            console.log('Resultado: ', soma);
+            
+            // vc pode passar uma propriedade pra dentro da função. Ela pode ser tratada como um objeto com propriedades e parâmetros.
+            somar.teste = 'propriedade da funcao';
+            
+            console.log(somar.teste);
+            
+            var teste = function(f){
+                f();
+            };
+            
+            // uma função tbm eh passada como parametro de uma variavel
+            // como esta função esta atribuida a variavel teste ela pode ser chamada pelo nome da variavel
+            teste(function(){
+                console.log('funcao passada por parametro');
+            }); // quando vc declara a função como valor de variavel aí é preciso colocar ; no final como qq outro valor declarado.
+            
+            console.log('------------------');
+            
+            // variaveis criadas fora da função existem dentro e fora da função, pertence ao escopo global.
+            var x = 0;
+            var y;
+            
+            function mostraX(){
+                // variaveis criadas dentro da função so existe dentro da função, pertence ao escopo local
+                var x = 10; //escopo local
+                var y = 20;
+                console.log("mostra x dentro: " , x);
+                console.log("mostra y dentro: " , y);
+            }
+            mostraX()
+            
+            console.log("mostra x fora: " , x);
+            console.log("mostra y fora: " , y);
+            
+            
+            //IIFE - Immediately-invoked function expression
+            (function(){
+                'use strict';
+                var isValid = false;
+                console.log(isValid);
+                
+                function somar(){
+                    console.log(arguments);
+                    var result = 0;
+                    var x = 0;
+                    
+                    while(arguments[x]){
+                        //result = result + arguments[x];
+                        result += arguments[x];
+                        //x = x + 1;
+                        x++;
+                    }
+                    console.log('result: ', result);
+                }
+                
+                somar(20, 20, 10, 5, 5, 15);
+            })();
+            
+            
+
+            
+            
+            
+        </script>
+        
+    </head>
+    <body>
+        <h1>Curso Javascript Completo 2018</h1>
+        
+         
+        
+    </body>
+</html>

@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Objetos Nativos do JS</title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+</head>
+<body>
+	<h3>Digitar no console</h3>
+	<h2>exemplos de objetos nativos</h2>
+	minhaStr
+	"Daniel"
+	minhaStr.length
+	6
+	var teste = new String('minha string de teste');
+	undefined
+	teste
+	String {"minha string de teste"}
+	teste.val
+	undefined
+	teste.valueOf
+	ƒ valueOf() { [native code] }
+	teste.valueOf()
+	"minha string de teste"
+	teste
+	String {"minha string de teste"}
+	new Number(2)
+	Number {2}
+	new Boolean(true)
+	Boolean {true}
+	var arr = new Array(1, 2, 3)
+	undefined
+	arr
+	(3) [1, 2, 3]
+	<h2>exemplo de objetos de sintaxe formal</h2>
+	var obj = new Object()
+	undefined
+	<h2>exemplos de objetos de sintaxe literal</h2>
+	<p>forma mais usada</p>
+	obj = {"title": "titulo", "texto": "Lorem"}
+	{title: "titulo", texto: "Lorem"}
+	obj
+	{title: "titulo", texto: "Lorem"}
+	<h2>objetos do ambiente de hospedagem</h2>
+	<p>o alert é um método que está relacionado ao browser</p>
+	<p>não faz sentido utilizá-lo no servidor</p>
+	alert("oi")
+	undefined
+	<p>o alert é um método do objeto window</p>
+	window.alert("ola")
+	<p>os objetos do ambiente de hospedagem são apenas relativos a onde esse código está sendo interpretado</p>
+	<script>
+		var minhaStr = "Daniel";
+
+		var hoje = new Date();
+		// hoje = Date()
+		// "Sat Apr 21 2018 16:43:01 GMT-0300 (Hora oficial do Brasil)"
+		// hoje.getDay()
+		// VM352:1 Uncaught TypeError: hoje.getDay is not a function
+		//     at <anonymous>:1:6
+		// para vc criar um novo objeto vc precisa instanciá-lo, copiá-lo, colocar o new na frente, ex: var hoje = new Date();
+
+		var x = 0;
+		function mudaX(x) {
+			var y = x;
+			console.log('mudaX: ', y);
+		}
+		mudaX(10);
+		console.log('x: ', x);
+		// ************************
+		console.log('****************');
+
+		var b = [0];
+		function mudaB(b) {
+			var c = b;
+			c.push(2);
+			console.log(b);
+			console.log(c);
+		}
+		mudaB(b);
+		console.log(b);
+		// ************************
+		console.log('****************');
+
+		var n = 0;
+		function mudaN(n) {
+			//debugger
+			var n2 = n;
+			console.log(++n2);
+		}
+		mudaN(n);
+		console.log(n);
+		// variáveis com valores primitivos numeros, string, booleanos são passados por valor. Qualquer outro tipo são passados por referência.
+
+		// ************************
+		console.log('****************');
+
+		var caneta1 = {
+			cor: "red",
+			mudarCor: function(cor) {
+				this.cor = cor;
+			}
+		}
+		caneta1.mudarCor('green');
+		console.log(caneta1);
+	</script>	
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Objetos Nativos do JS</title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+</head>
+<body>
+	<div class="container">
+		<h1>Curso Javascript Completo 2018</h1>
+		<button id="btn1">botão 1</button>
+		<button id="btn2">botão 2</button>
+		<button id="btn3">botão 3</button>
+	</div>
+	<script>
+		var btn1 = document.getElementById('btn1');
+		var btn2 = document.getElementById('btn2');
+		var btn3 = document.getElementById('btn3');
+
+		btn2.onclick = clicar;
+
+		function clicar() {
+			alert('clicou');
+
+			return function() {
+				alert('clicou2');
+			}
+		}
+
+		// dentro do () do addEventListener eu preciso colocar pelo 2 parâmetros: 1º o tipo do evento e 2º a função que será executada.
+		btn3.addEventListener("click", clique);
+
+		function clique(){
+			alert("clicou com DOM level 2");
+		};
+
+		btn3.addEventListener("click", function(){
+			alert("clicou com DOM level 2 com outro evento");
+		});
+	</script>
+</body>
+</html>

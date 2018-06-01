@@ -1,0 +1,94 @@
+<!DOCTYPE>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title></title>
+	<link rel="stylesheet" href="">
+</head>
+<script type="text/javascript">
+(function() {
+
+
+	var x = 0;
+	var y = 0;
+	function imc(x, y) {
+		var result = x/(y * y);
+		return result;
+	}
+
+	function classify_imc(imc) {
+		var result = "Seu IMC é de: " + imc.toString(); 
+
+		
+		//var result = "João";
+		//result = result + " da Silva"; // Joao da Silva
+		//ou
+		//result += "da Silva";
+		
+
+		if (imc <= 16.9) {
+			return result +=  " Você está muito abaixo do peso ideal."
+		} 
+
+		if (imc <= 18.4) {
+			return result += " Você está abaixo do peso ideal."
+		}
+
+		if (imc <= 24.9) {
+			return result += " Você está abaixo no peso ideal.";
+		}
+
+		if (imc < 29.9) {
+			return result += " Você está acima do peso ideal.";
+		}
+
+		if (imc <= 34.9) {
+			return result += " Você está com Obesidade Grau I.";
+		}
+
+		if (imc <= 40) {
+			return result += " Você está com Obesidade Grau II.";
+		} 
+
+		return result += " Você está com Obesidade Grau III.";
+	}
+
+	var meuImc = imc(54, 1.7);
+	var meuImc2 = imc(90, 1.70);
+	var diagnostico = classify_imc(meuImc);
+	var diagnostico2 = classify_imc(meuImc2);
+
+	console.log(diagnostico, diagnostico2);
+
+	var x = 2;
+	var y = 3;
+
+	function multiple() {
+		var x = 10;
+		return x * y;
+	}
+
+	console.log(multiple);
+	console.log(x, y, multiple(), multiple(), multiple); // 10, 3, 30, 
+	console.log(multiple);
+})();
+
+(function() {
+	function A(str) {
+		console.log('executando a funçao A recebendo dados:', str);
+	}
+	function B(fn) {
+		console.log('executando a funcao de callback fn');
+		fn('uma string qualquer');
+	}
+	B(A);
+})();
+
+
+</script>
+
+<body>
+	
+</body>
+</html>
