@@ -10,7 +10,7 @@
 		<h1>Validação de Formulário</h1>
 		<h2>Problema</h2>
 		<p>Efetuar o mesmo exemplo anterior, mas agora não mais validando no click do botão, mas sim no submit do formulário.</p>
-		<form action="#">
+		<form action="#" method="POST">
 			<label for="txtUser">Usuário</label>
 			<input type="text" id="txtUser" name="user">
 			<br/>
@@ -23,13 +23,14 @@
 	<script>
 		(function() {
 			'use strict';
+			var $form = document.querySelector('form');
 			var $txtUser = document.getElementById('txtUser');
 			var $txtPass = document.getElementById('txtPass');
-			var $btn = document.getElementById('btn');
 
-			$btn.addEventListener('click', function(){
+			$form.addEventListener('submit', function(e){
 				if(!$txtUser.value || $txtPass.value === ""){
 					alert('Preencha todos os campos');
+					e.preventDefault();
 				}
 			});
 		})()
