@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Curso Javascript Completo 2018</title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+</head>
+<body>
+	<div class="container">
+		<div class="container">
+			<h1>Envio de Formulário com condição.</h1>
+			<h2>Problema</h2>
+			<p>Fazer uma pequena lista de tarefas onde o usuário pode acrescentar um novo item (li) na lista (ul) através de um input e um botão. Esta lista deve estar preenchida previamente com três itens quaisquer.<br/>Acrescentar eventos de click em cada li para marcar com feito.</p>
+		</div>
+		<div class="container">
+			<input type="text" id="txtTask">
+			<button id="btn">Cadastrar tarefa</button>
+			<ul>
+				<li>estudar Javascript - DOM</li>
+				<li>estudar eventos em Javascript</li>
+				<li>jogar video-game</li>
+			</ul>
+		</div>
+	</div>
+	<script>
+		(function() {
+			'use strict';
+			var $ul = document.querySelector('ul');
+			var $txtTask = document.querySelector('#txtTask');
+			var $btn = document.querySelector('#btn');
+
+			// adicionando itens a lista de tarefas
+			$btn.addEventListener('click', function(){
+				var task = '<li>' + $txtTask.value + '</li>';
+				$ul.innerHTML += task;
+
+				$txtTask.value = '';
+				$txtTask.focus();
+			})
+		})()
+	</script>
+</body>
+</html>
+
+
+
+
+
+

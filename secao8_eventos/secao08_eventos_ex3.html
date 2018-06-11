@@ -9,9 +9,9 @@
 	<div class="container">
 		<h1>Contagem de caracteres</h1>
 		<h2>Problema</h2>
-		<p>Num textarea com um número máximo do caracteres permitidos, mostrar numa span o número de caracteres restantes e indicar pro usuário quando restam apenas 10 caracteres.</p>
-		<textarea name="" id="msg" cols="30" rows="10" maxlength="10"></textarea>
-		<div id="carCont" style="display: none;">
+		<p>Num textarea com um número máximo do caracteres permitidos, mostrar numa span o número de caracteres restantes e indicar pro usuário quando restam apenas 50 caracteres.</p>
+		<textarea name="" id="msg" cols="30" rows="10" maxlength="50"></textarea>
+		<div id="restaContainer" style="display: none;">
 			<p>Restam <span id="resta"></span> caracteres</p>
 		</div>
 	</div>
@@ -19,18 +19,26 @@
 		(function() {
 			'use strict';
 			var $txtMsg = document.getElementById('msg');
-			var $carCont = document.getElementById('carCont');
+			var $restaContainer = document.getElementById('restaContainer');
 			var $resta = document.getElementById('resta');
 			var maxima = $txtMsg.maxLength;
 
-			$carCont.style.display = 'block';
-			$resta.textContent = maxima;
-
+			function mostrarContainerResta(){
+				$restaContainer.style.display = 'block';
+			}
+			
+			mostrarContainerResta();
+			mostrarCaracteresRestantes(maxima);
 			$txtMsg.addEventListener('input', checkLength);
 
 			function checkLength(e){
 				var caracterDigitado = this.value.length;
-				$resta.textContent = maxima - caracterDigitado;
+				var caracteresRestantes = parseInt(maxima) - parseInt(caracterDigitado);
+				mostrarCaracteresRestantes(caracteresRestantes);
+			}
+
+			function mostrarCaracteresRestantes(n){
+				$resta.textContent = n;
 			}
 		})()
 	</script>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Curso Javascript Completo 2018</title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+</head>
+<body>
+	<div class="container">
+		<div class="container">
+			<h1>Envio de Formulário com condição.</h1>
+			<h2>Problema</h2>
+			<p>Permitir o envio de um formulário somente após o usuário aceitar os termos do contrato (checkbox). Para este exemplo, vamos habilitar ou desabilitar o botão dependendo do checkbox.</p>
+		</div>
+		<div class="container">
+			<form action="#">
+				<textarea name="" id="msg" cols="30" rows="4" readonly>Contrato de serviços prestados</textarea>
+				<br>
+				<label>
+					<input type="checkbox" id="chk" checked> Li e aceito os termos desse contrato.</input>
+				</label>
+				<br>
+				<input type="submit" id="btn" value="Continuar">
+			</form>
+		</div>
+	</div>
+	<script>
+		(function() {
+			'use strict';
+			var $btn = document.getElementById('btn');
+			var $chk = document.getElementById('chk');
+
+			$chk.addEventListener('change', function() {
+				$btn.disabled = !$chk.checked;
+			});
+		})()
+	</script>
+</body>
+</html>
+
+
+
+
+
+
