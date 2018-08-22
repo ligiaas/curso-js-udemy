@@ -3,46 +3,64 @@
     <head>
         <title>Curso Javascript Completo 2018</title>
         <meta charset="utf-8">
-        
+
         <script>
             var nome = "Daniel";
             var n = 10;
             var n2 = 1.5;
-            
-            var ehMaiorDeIdade = true; 
-            
+
+            var ehMaiorDeIdade = true;
+
             var obj = new Object();
             obj.nome = "Zé";
-            
+
             obj = {
                 nome: "ze",
                 idade: 25
             };
-            
+
             var frutas = ['maça', 'pera', 'uva'];
-            
+
             var frase = "O \"HTML\" é maneiro";
-            
+
             //alert(frase);
-            
+
             var teste = undefined;
             //alert(teste);
-            
+
             n = 20;
             var str = " ola ";
             alert("20" + " ola ");
-                        
+
             //alert(nome);
             //alert('ola');
-            
-            
+
+
         </script>
-        
+
     </head>
     <body>
         <h1>Curso Javascript Completo 2018</h1>
-        
-         
-        
+        <br/>
+        <h2>Sistema Léxico</h2>
+        <br/>
+        <ul>
+            <li>Case-sensitive: diferencia letras maiúsculas e minúsculas.</li>
+            <li>Comentários: // de uma linha e /* */ múltiplas linhas</li>
+            <li>Declarações: cada linha de código é uma declaração. Vc pode colocar mais de uma declaração na mesma linha, basta colocar ; no final de cada declaração.</li>
+            <li>Literais: é cada valor que eu posso atribuir a cada variável, sendo string, num, boolean, array e obj.Vc tbm declara objetos literais com {}.Com array é com [].</li>
+            <li>Escape: para escapar a aspas do js (ser interpretado como texto) é só colocar /.Ex: "o "/HTML/" é legal."</li>
+            <li>Variáveis e Constantes: para criar variáveis vc pode usar "var" e "let". Para criar constantes vc usa "const" é pra valores imutáveis, q não sofre variação.</li>
+            <li>Null, undefined, NaN e Infinity: Undefined é quando eu não atribuo valor algum, Null é quando eu atribuo valor nulo, NaN(Not a Number) quando vc tenta fazer uma operação matemática mas um dos valores não é calculável.Ex: alert(20 * "ola").Infinity é quando o número é muito grande pro js mostrar.</li>
+            <li>Objeto global (window, global) e this: window é o objeto raiz no browser, ex: alert é uma função do window, do browser, ele não funciona no banco de dados. Quando vc vai tratar do banco de dados vc usa o global. This é quem representa o contexto atual.</li>
+        </ul>
+        <br/>
+        <h2>Atalhos</h2>
+        <p>Ferramentas de desenvolvedor Chrome: crtl+shift+i ou F12 no Windows.</p>
+        <p>Aba Network mostra todas as requisições do cliente no servidor.</p>
+        <p></p>
+
+
+
     </body>
 </html>

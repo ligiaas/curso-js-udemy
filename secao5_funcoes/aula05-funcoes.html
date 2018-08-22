@@ -3,63 +3,79 @@
     <head>
         <title>Curso Javascript Completo 2018</title>
         <meta charset="utf-8">
-        
+    </head>
+    <body>
+        <h1>Curso Javascript Completo 2018</h1>
+        <h2>Funções em Javascript</h2>
+        <ul>
+            <li>Literais</li>
+            <li>São cidadãs de primeira classe, podem ser tratadas como objeto.</li>
+            <li>Podem ser passadas por parâmetros</li>
+            <li>No ES5, são as únicas que criam escopos</li>
+            <li>Podem ser auto-executáveis (IIFE)</li>
+            <li>Possuem uma propriedade que mostra os argumentos passados por parâmetro</li>
+        </ul>
         <script>
-            
             //literal
+            // a função somar var receber de parâmetro os números n1 e n2.
             function somar(n1, n2) {
                 // corpor da funcao
+                // essa função vai retornar a soma desses 2 números;
                 return n1 + n2;
             } //na função literal vc não precisa colocar ; no final
-            
+
+            // a variável soma var armazenar o resultado dessa soma;
             var soma = somar(10, 20);
+            // console.log vai o valor da var soma concatenado com a string: 'Resultado: ';
             console.log('Resultado: ', soma);
-            
-            // vc pode passar uma propriedade pra dentro da função. Ela pode ser tratada como um objeto com propriedades e parâmetros.
+
+            // Ela pode ser tratada como um objeto que possui propriedades e métodos. Vc pode passar uma propriedade pra dentro da função.
             somar.teste = 'propriedade da funcao';
-            
+
             console.log(somar.teste);
-            
+
+            // uma função tbm eh passada por parâmetro
+            // como esta função esta atribuida a variavel teste ela pode ser chamada pelo nome da variavel
             var teste = function(f){
                 f();
             };
-            
-            // uma função tbm eh passada como parametro de uma variavel
-            // como esta função esta atribuida a variavel teste ela pode ser chamada pelo nome da variavel
             teste(function(){
                 console.log('funcao passada por parametro');
             }); // quando vc declara a função como valor de variavel aí é preciso colocar ; no final como qq outro valor declarado.
-            
+
             console.log('------------------');
-            
+
             // variaveis criadas fora da função existem dentro e fora da função, pertence ao escopo global.
             var x = 0;
             var y;
-            
+
             function mostraX(){
                 // variaveis criadas dentro da função so existe dentro da função, pertence ao escopo local
                 var x = 10; //escopo local
+                // x = 10; -> escopo global, vc está alterando o valor de uma variavel que ja existe no escopo global. Declarar novas funções sem a palavra var tbm cria novas variaveis em escopo global.
                 var y = 20;
+                z = 30;
                 console.log("mostra x dentro: " , x);
                 console.log("mostra y dentro: " , y);
             }
             mostraX()
-            
+
             console.log("mostra x fora: " , x);
             console.log("mostra y fora: " , y);
-            
-            
+            console.log("mostra z fora: " , z);
+
+
             //IIFE - Immediately-invoked function expression
             (function(){
-                'use strict';
+                'use strict'; // só se deve usar dentro das nossas própriass funções pra não quebrar códigos de 3º.
                 var isValid = false;
                 console.log(isValid);
-                
+
                 function somar(){
                     console.log(arguments);
                     var result = 0;
                     var x = 0;
-                    
+
                     while(arguments[x]){
                         //result = result + arguments[x];
                         result += arguments[x];
@@ -68,22 +84,9 @@
                     }
                     console.log('result: ', result);
                 }
-                
+
                 somar(20, 20, 10, 5, 5, 15);
             })();
-            
-            
-
-            
-            
-            
         </script>
-        
-    </head>
-    <body>
-        <h1>Curso Javascript Completo 2018</h1>
-        
-         
-        
     </body>
 </html>

@@ -50,29 +50,29 @@
 			})
 			$txtTask.focus();
 
-			for(var i = 0; i < $lis.length; i++){
-				addEvent($lis[i]);
-			}
+			// recebendo um escutador de evento 'click' na ul
+			$ul.addEventListener('click', function(e){
+				// se esse evento 'click' for igual a LI (se for uma li) chamar a função toggleDone passando li de parâmetro
+				if (e.target.nodeName === 'LI') {
+					toggleDone(e.target);
+				}
+			})
 
-			function toggleDone(){
-				//classList manipula as classes css dentro dos elementos html
-				this.classList.toggle('done'); //toggle se não tiver a classe ele põe e se tiver ele tira
+			function toggleDone(li){
+				li.classList.toggle('done'); //toggle se não tiver a classe ele põe e se tiver ele tira
 			}
 
 			function addTask(){
+				// criando a tag li
 				var li = document.createElement('li');
+				// criando a var com valor do texto do input
 				var text = document.createTextNode($txtTask.value);
-
+				// acrescentando a nova li na ul
 				li.appendChild(text);
+				// acrescentando o texto do input na li
 				$ul.appendChild(li);
-
+				// zerando o valor do input novamente
 				$txtTask.value = '';
-
-				addEvent(li);
-			}
-
-			function addEvent(li){
-				li.addEventListener('click', toggleDone);
 			}
 		})()
 	</script>

@@ -6,29 +6,42 @@
     </head>
     <body>
         <h1>Lógica de programação com Javascript</h1>
-        
+
         <button onclick="calcular('+')">+</button>
         <button onclick="calcular('-')">-</button>
         <button onclick="calcular('*')">*</button>
         <button onclick="calcular('/')">/</button>
-        
+        <br/>
+        <p>Para colocar um breakpoint no código, na aba Sources é só clicar em cima da linha desejada.Pra excluir é a mesma coisa.</p>
+        <p>Para prosseguir com o debugger: F10 = vai pra próxima linha, F8 = vai pro próximo breakpoint, </p>
+        <ul>
+            <li>F8 = resume script execution => continua a execução</li>
+            <li>F10 = step over next function call => passe pra próxima chamada de função</li>
+            <li>F11 = step into next function call => entra dentro da próxima função</li>
+            <li>F11 = step out of current function => sai da função atual</li>
+        </ul>
+        <p>Debugger: Dentro de uma função escreva "debugger;" = força uma parada no código pra ter interação e inspeção com o código.</p>
+        <p>Console.log mostra uma mensagem qualquer.</p>
+        <p>Pra saber o tipo de um dado de uma variável digita no console: "typeof nomevar".Pra converter uma variavel pra numero: "var = ParseInt(var)"</p>
+        <p>Ao finalizar a inspeção, excluir os consoles.log() e os debuggers; NÃO ESQUECER!!</p>
+        <p></p>
         <div id="output"></div>
-        
+
         <script>
-            
+
             var n1 = prompt('digite um numero');
-                        
+
             escreve();
-            
+
             function escreve(){
                 console.log('---------');
                 console.log(n1);
             }
-            
-            
+
+
             function calcular(simbolo){
                 var n = prompt('digite outro numero');
-                                
+
                 switch(simbolo){
                     case '+':
                         n1 = n1 + n;
@@ -42,13 +55,13 @@
                     case '/':
                         n1 = n1 / n;
                 }
-                
-                escreve();                
+
+                escreve();
             }
-            
-            
-            
-            
+
+
+
+
         </script>
     </body>
 </html>

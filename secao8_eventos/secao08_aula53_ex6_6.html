@@ -17,7 +17,7 @@
 			<div class="col">
 				<h1>Envio de Formulário com condição.</h1>
 				<h2>Problema</h2>
-				<p>Fazer uma pequena lista de tarefas onde o usuário pode acrescentar um novo item (li) na lista (ul) através de um input e um botão. Esta lista deve estar preenchida previamente com três itens quaisquer.<br/>Acrescentar eventos de click em cada li para marcar com feito.</p>
+				<p>O cliente pediu para fazer com que, ao clicar num item da lista, pergunte ao usuário se ele quer excluir aquele item da lista de tarefas. Se confirmado, efetuar a remoção.</p>
 				<div class="form">
 					<div class="form-group mb-2">
 						<input type="text" class="form-control" placeholder="Cadastrar Tarefa" id="txtTask">
@@ -50,29 +50,35 @@
 			})
 			$txtTask.focus();
 
-			for(var i = 0; i < $lis.length; i++){
-				addEvent($lis[i]);
-			}
+			// recebendo um escutador de evento 'click' na ul
+			$ul.addEventListener('click', function(e){
+				// se esse evento 'click' for igual a LI (se for uma li) chamar a função removeTask passando li de parâmetro
+				if (e.target.nodeName === 'LI') {
+					removeTask(e.target);
+				}
+			})
 
-			function toggleDone(){
-				//classList manipula as classes css dentro dos elementos html
-				this.classList.toggle('done'); //toggle se não tiver a classe ele põe e se tiver ele tira
+			// função que irá deletar uma li
+			function removeTask(li){
+				// pergunta se o usuário confirma a exclusão do item
+				if(confirm('deseja realmente excluir a tarefa \n '+ li.textContent +'?')){
+					// se sim, remove o filho(removeChild(li)) do pai(parentNode), no caso remove o li(passado por parâmetro) da ul
+					// parentNode é a tag imediatamente acima da tag informada
+					li.parentNode.removeChild(li);
+				}
 			}
 
 			function addTask(){
+				// criando a tag li
 				var li = document.createElement('li');
+				// criando a var com valor do texto do input
 				var text = document.createTextNode($txtTask.value);
-
+				// acrescentando a nova li na ul
 				li.appendChild(text);
+				// acrescentando o texto do input na li
 				$ul.appendChild(li);
-
+				// zerando o valor do input novamente
 				$txtTask.value = '';
-
-				addEvent(li);
-			}
-
-			function addEvent(li){
-				li.addEventListener('click', toggleDone);
 			}
 		})()
 	</script>

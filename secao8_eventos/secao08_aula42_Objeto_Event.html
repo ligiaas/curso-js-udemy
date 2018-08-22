@@ -8,7 +8,7 @@
 <body>
 	<div class="container">
 		<h1>Objeto Event</h1>
-		<p>Objeto passado por parâmetro para a função que foi alterada nos fornecendo várias informações adicionais sobre o evento em si. Esto objeto varia de acordo com o tipo do evento.</p>
+		<p>Objeto passado por parâmetro para a função que foi atrelada nos fornecendo várias informações adicionais sobre o evento em si. Este objeto varia de acordo com o tipo do evento.</p>
 		<div id="d1" style="background: #ffcccc;padding: 25px;">
 			Texto dentro da div.
 			<span id="d1span" style="background: #ccffff;">Texto dentro do span.</span>
@@ -19,17 +19,17 @@
 		var $d1 = document.querySelector('#d1');
 		var $d1Span = document.querySelector('#d1 span');
 
-		$d1.addEventListener('click', function(e){
+		$d1.addEventListener('click', function(evt){
 			console.log('click no $d1');
-			e.stopPropagation(); // para a propagação do evento
+			evt.stopPropagation(); // para a propagação do evento
 		});
 
 		// Obs: quando vc passa um parâmetro dentro da função atrelada do evento, essa função se torna o objeto do evento e traz várias informações do evento.
-		document.addEventListener('click', function(e){
+		document.addEventListener('click', function(evt){
 			console.log('clicou no document');
-			console.log(e.currentTarget); // currentTarget é o elemento a qual foi atrelado o evento, nesse caso o document.
+			console.log(evt.currentTarget); // currentTarget é o elemento a qual foi atrelado o evento, nesse caso o document.
 			console.log(this); // this é sempre o dono do evento.
-			console.log(e.target); // target é quem disparou o evento
+			console.log(evt.target); // target é quem disparou o evento
 		})
 
 		$d1Span.addEventListener('click', function(){
