@@ -4,14 +4,13 @@
 	<meta charset="UTF-8">
 	<title>Curso Javascript Completo 2018</title>
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
-
-	<style>
-		.done{
-			text-decoration: line-through;
-			color: blue;
-		}
-	</style>
 </head>
+<style>
+	.done {
+		text-decoration: line-through;
+		color: blue;
+	}
+</style>
 <body>
 	<div class="container">
 		<div class="container">
@@ -33,6 +32,7 @@
 		(function() {
 			'use strict';
 			var $ul = document.querySelector('ul');
+			var $lis = $ul.querySelectorAll('li');
 			var $txtTask = document.querySelector('#txtTask');
 			var $btn = document.querySelector('#btn');
 
@@ -42,19 +42,24 @@
 				if(e.keyCode === 13){
 					addTask();
 				}
-			});
+			})
 
-			for(var i = 0; i < $lis.length; i++){
-				$lis[i].addEventListener('click', toogleDone)
-			}
+			$ul.addEventListener('click', function(e){
+				if(e.target.nodeName === 'LI'){
+					toggleDone(e.target)
+				}
+			})
 
-			function toogleDoe(){
-				this.classList.toggle('done');
+			function toggleDone(li){
+				li.classList.toggle('done');
 			}
 
 			function addTask(){
-				var task = '<li>' + $txtTask.value + '</li>';
-				$ul.innerHTML += task;
+				var li = document.createElement('li');
+				var text = document.createTextNode($txtTask.value);
+
+				li.appendChild(text);
+				$ul.appendChild(li);
 
 				$txtTask.value = '';
 				$txtTask.focus();
