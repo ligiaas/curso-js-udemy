@@ -6,21 +6,33 @@
     </head>
     <body>
         <h1>Curso Javascript Completo 2018</h1>
-        
+
         <main class="cmain" id="idmain">
             <h2>subtitulo</h2>
             <p id="pmain" class="pmain">Lorem ipsum dolor sit amet, consectetur adipisicing elit. </p>
-        </main> 
-        
+        </main>
+
         <section class="csection" id="idsection">
             <h3>subtitulo</h3>
             <p class="paragrafos">Lorem ipsum dolor sit amet, consectetur adipisicing elit. </p>
             <p class="paragrafos">Lorem ipsum dolor sit amet, consectetur adipisicing elit. </p>
         </section>
-        
+
+        <section>
+            <h3>Document Obejct Model</h3>
+            <p>Sempre que o JS precisar pegar um elemento do HTML ele usará os recursos abaixos. Cada tag html se torna um objeto no js com props e métodos e a estrutura html vai determinar a hierarquia entre esses objetos.</p>
+                <ul>
+                    <li>getElementById: Seleciona o elemento html através do id.</li>
+                    <li>getElementByTagName: Seleciona uma coleção de objetos(nodelist) que constam com a tagName informada. Sempre que usar ess opção é preciso indicar o índice(index) a ser alterado dentro de um array mesmo que seja uma coleção de 1 objeto.</li>
+                    <li>getElementByClassName: Seleciona uma coleção de objetos(nodelist). Sempre que usar ess opção é preciso indicar o índice(index) a ser alterado dentro de um array mesmo que seja uma coleção de 1 objeto.</li>
+                    <li>querySelector: Seleciona apenas o 1º objeto, com a mesma sintaxe do CSS. Através de '#id', '.class', 'tag' e etc.</li>
+                    <li>querySelectorAll: Seleciona uma coleção de objeto podendo ser uma coleção de 1, com a mesma sintaxe do CSS. Através de '#id', '.class', 'tag' e etc.</li>
+                </ul>
+        </section>
+
         <script type="text/javascript">
       document.querySelector('h1').textContent = 'Parágrafo alterado via javascript.';
     </script>
-        
+
     </body>
 </html>

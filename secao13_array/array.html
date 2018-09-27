@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Array</title>
+</head>
+<body>
+
+	<script>
+		(function() {
+			var pessoa = {
+				nome: 'daniel',
+				sobrenome: 'tapias morales'
+			};
+			var pessoa2 = {
+				nome: 'José',
+				sobrenome: 'Geraldo'
+			};
+			var pessoa3 = {
+				nome: 'maria',
+				sobrenome: 'Oliveira'
+			};
+
+			var pessoas = [
+				pessoa,
+				pessoa2,
+				pessoa3
+			]
+			let item = pessoa.filter((sobrenome) => {
+				return sobrenome;
+			})
+			console.log(sobrenome);
+
+		})()
+	</script>
+</body>
+</html>

@@ -11,7 +11,7 @@
 		<p>É a capacidade dos eventos de percorrerem a estrutura do HTML, desde o elemento original até o nível mais alto (numa página web,é o body).</p>
 		<div id="d1" style="background: #ffcccc;padding: 25px;">
 			Texto dentro da div.
-			<span id="d1span" style="background: #ccffff;">Texto dentro do span.</span>
+			<span id="d1span" style="background: #ccffff;">Texto dentro do span. Quando um elemento interno recebeu um evento ele dispara esse evento para todos os elementos pais.</span>
 		</div>
 	</div>
 	<script>
@@ -28,7 +28,7 @@
 		}, true) // Obs: não é costume informar o 3º valor do evento (boolean) mas se ele for informado prevalecerá o valor do nível mais alto, no caso, o body. Mesmo se a div ou span especificar valores diferentes.
 
 		$d1Span.addEventListener('click', function(){
-			console.log('click no $d1Span');
+			$d1Span.style.background = "#cacaca";
 		}, false);
 
 	</script>

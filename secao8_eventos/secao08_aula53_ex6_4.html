@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+	<!DOCTYPE html>
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
@@ -13,19 +13,23 @@
 </style>
 <body>
 	<div class="container">
-		<div class="container">
-			<h1>Envio de Formulário com condição.</h1>
-			<h2>Problema</h2>
-			<p>Fazer uma pequena lista de tarefas onde o usuário pode acrescentar um novo item (li) na lista (ul) através de um input e um botão. Esta lista deve estar preenchida previamente com três itens quaisquer.<br/>Acrescentar eventos de click em cada li para marcar com feito.</p>
-		</div>
-		<div class="container">
-			<input type="text" id="txtTask">
-			<button id="btn">Cadastrar tarefa</button>
-			<ul>
-				<li>estudar Javascript - DOM</li>
-				<li>estudar eventos em Javascript</li>
-				<li>jogar video-game</li>
-			</ul>
+		<div class="row">
+			<div class="col">
+				<h1>Envio de Formulário com condição.</h1>
+				<h2>Problema</h2>
+				<p>Fazer uma pequena lista de tarefas onde o usuário pode acrescentar um novo item (li) na lista (ul) através de um input e um botão. Esta lista deve estar preenchida previamente com três itens quaisquer.<br/>Acrescentar eventos de click em cada li para marcar com feito.</p>
+				<div class="form">
+					<div class="form-group mb-2">
+						<input type="text" class="form-control" placeholder="Cadastrar Tarefa" id="txtTask">
+					</div>
+					<button class="btn btn-info mb-2" type="submit" id="btn">Cadastrar tarefa</button>
+				</div>
+				<ul>
+					<li>estudar JS - DOM</li>
+					<li>estudar eventos em JS</li>
+					<li>jogar video-game</li>
+				</ul>
+			</div>
 		</div>
 	</div>
 	<script>
@@ -39,17 +43,20 @@
 			// adicionando itens a lista de tarefas
 			$btn.addEventListener('click', addTask);
 			$txtTask.addEventListener('keyup', function(e){
+				//cada tecla do teclado tem o seu código. A tecla enter tem o código 13.
 				if(e.keyCode === 13){
 					addTask();
 				}
 			})
+			$txtTask.focus();
 
 			for(var i = 0; i < $lis.length; i++){
 				addEvent($lis[i]);
 			}
 
 			function toggleDone(){
-				this.classList.toggle('done');
+				//classList manipula as classes css dentro dos elementos html
+				this.classList.toggle('done'); //toggle se não tiver a classe ele põe e se tiver ele tira
 			}
 
 			function addTask(){
@@ -60,7 +67,6 @@
 				$ul.appendChild(li);
 
 				$txtTask.value = '';
-				$txtTask.focus();
 
 				addEvent(li);
 			}
