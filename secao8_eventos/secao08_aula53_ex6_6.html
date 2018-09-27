@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 <!DOCTYPE html>
+=======
+	<!DOCTYPE html>
+>>>>>>> 6a02fb7556e7296f0f513abd90bb42e33c869f86
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
@@ -8,11 +12,16 @@
 <style>
 	.done {
 		text-decoration: line-through;
+<<<<<<< HEAD
 		color: blue;
+=======
+		color: #555;
+>>>>>>> 6a02fb7556e7296f0f513abd90bb42e33c869f86
 	}
 </style>
 <body>
 	<div class="container">
+<<<<<<< HEAD
 		<div class="container">
 			<h1>Envio de Formulário com condição.</h1>
 			<h2>Problema</h2>
@@ -26,6 +35,25 @@
 				<li>estudar eventos em Javascript</li>
 				<li>jogar video-game</li>
 			</ul>
+=======
+		<div class="row">
+			<div class="col">
+				<h1>Envio de Formulário com condição.</h1>
+				<h2>Problema</h2>
+				<p>O cliente pediu para fazer com que, ao clicar num item da lista, pergunte ao usuário se ele quer excluir aquele item da lista de tarefas. Se confirmado, efetuar a remoção.</p>
+				<div class="form">
+					<div class="form-group mb-2">
+						<input type="text" class="form-control" placeholder="Cadastrar Tarefa" id="txtTask">
+					</div>
+					<button class="btn btn-info mb-2" type="submit" id="btn">Cadastrar tarefa</button>
+				</div>
+				<ul>
+					<li>estudar JS - DOM</li>
+					<li>estudar eventos em JS</li>
+					<li>jogar video-game</li>
+				</ul>
+			</div>
+>>>>>>> 6a02fb7556e7296f0f513abd90bb42e33c869f86
 		</div>
 	</div>
 	<script>
@@ -39,25 +67,48 @@
 			// adicionando itens a lista de tarefas
 			$btn.addEventListener('click', addTask);
 			$txtTask.addEventListener('keyup', function(e){
+<<<<<<< HEAD
+=======
+				//cada tecla do teclado tem o seu código. A tecla enter tem o código 13.
+>>>>>>> 6a02fb7556e7296f0f513abd90bb42e33c869f86
 				if(e.keyCode === 13){
 					addTask();
 				}
 			})
+<<<<<<< HEAD
 
 			$ul.addEventListener('click', function(e){
 				if(e.target.nodeName === 'LI'){
+=======
+			$txtTask.focus();
+
+			// recebendo um escutador de evento 'click' na ul
+			$ul.addEventListener('click', function(e){
+				// se esse evento 'click' for igual a LI (se for uma li) chamar a função removeTask passando li de parâmetro
+				if (e.target.nodeName === 'LI') {
+>>>>>>> 6a02fb7556e7296f0f513abd90bb42e33c869f86
 					removeTask(e.target);
 				}
 			})
 
+<<<<<<< HEAD
 			function removeTask(li){
 				if(confirm('deseja realmente excluir \n'+ li.textContent +'?')){
 					console.log(li.parentNode);
+=======
+			// função que irá deletar uma li
+			function removeTask(li){
+				// pergunta se o usuário confirma a exclusão do item
+				if(confirm('deseja realmente excluir a tarefa \n '+ li.textContent +'?')){
+					// se sim, remove o filho(removeChild(li)) do pai(parentNode), no caso remove o li(passado por parâmetro) da ul
+					// parentNode é a tag imediatamente acima da tag informada
+>>>>>>> 6a02fb7556e7296f0f513abd90bb42e33c869f86
 					li.parentNode.removeChild(li);
 				}
 			}
 
 			function addTask(){
+<<<<<<< HEAD
 				var li = document.createElement('li');
 				var text = document.createTextNode($txtTask.value);
 
@@ -66,6 +117,18 @@
 
 				$txtTask.value = '';
 				$txtTask.focus();
+=======
+				// criando a tag li
+				var li = document.createElement('li');
+				// criando a var com valor do texto do input
+				var text = document.createTextNode($txtTask.value);
+				// acrescentando a nova li na ul
+				li.appendChild(text);
+				// acrescentando o texto do input na li
+				$ul.appendChild(li);
+				// zerando o valor do input novamente
+				$txtTask.value = '';
+>>>>>>> 6a02fb7556e7296f0f513abd90bb42e33c869f86
 			}
 		})()
 	</script>
