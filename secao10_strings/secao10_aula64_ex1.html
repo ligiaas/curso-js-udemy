@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Curso Javascript Completo 2018</title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+</head>
+<body>
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12">
+				<h2>Strings</h2>
+				<h4>Métodos e Propriedades</h4>
+				<h6>length</h6>
+				<p>Mostra o número de caracteres tem a string.</p>
+				<h6>replace()</h6>
+				<p>Recebe 2 parâmetros: 1º qual caracter será substituído e o 2º o novo caracter, a substituição. Obs: Ele só troca a 1ª ocorrência, para trocar todas as ocorrências é preciso fazer uma expressão regular. Ex: str.replace(/i/g, 'I').</p>
+				<h6>indexOf()</h6>
+				<p>Ele retorna a posição de um determinado caracter, contando a partir da esquerda p/ direita.Se retornar -1 o caracter não existe. Ele tbm retorna a 1ª posição de uma string (palavra).</p>
+				<h6>lastIndexOf()</h6>
+				<p>Faz a mesma função do indexOf() porém contando a partir da direita p/ esquerda.</p>
+				<h6>slice()</h6>
+				<p>Serve p/ "cortar" string, ele retorna um trecho da string. Vc passa como parâmetro a posição da qual vc quer ele corte, se vc passar mais de 1 parâmetro ele vai cortar a string a partir da posição do 1º parâmetro até a posição do 2º parâmetro.</p>
+				<h6>substring()</h6>
+				<p>Igual ao slice(), porém ele entende quando vc passa o 1º parâmetro um número maior que o 2º parâmetro. Ele faz essa inversão automática.</p>
+				<h6>split()</h6>
+				<p>Ele corta a string contando a partir do caracter passado por parâmetro e retorna um array dos caracteres restantes da string que foi cortada.</p>
+				<h6>toLowerCase()</h6>
+				<p>Deixa todos os caracteres minúsculos.</p>
+				<h6>toUpperCase()</h6>
+				<p>Deixa todos os caracteres maiúsculos.</p>
+				<h6>valueOf()</h6>
+				<p>Retorna o valor primitivo.</p>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-12">
+				<h4>Exercício Proposto</h4>
+				<p>Transformar o nome apresentado, <strong>Lígia de Almeida Silva</strong><br/>em: <strong>Silva, Lígia de Almeida</strong></p>
+			</div>	
+		</div>
+	</div>
+	<script>
+		var name = "Lígia de Almeida Silva";
+		var nFormat = formatarName(name);
+
+		function formatarName(name) {
+			var z = name.length;
+			var x = name.lastIndexOf(' ');
+			if(x <= 0){
+				return name;
+				console.log(name);
+			}
+			var lname = name.substring((x+1), z);
+			// console.log(lname);
+			var fname = name.slice(0, x);
+			// console.log(fname);
+			var newNome = lname + ', ' + fname;
+			console.log(newNome)
+		}
+	</script>
+</body>
+</html>
+
+
+
+
+
+

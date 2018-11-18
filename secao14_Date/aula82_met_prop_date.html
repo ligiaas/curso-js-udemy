@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Lógica de Programação</title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+</head>
+<body>
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12">
+				<h1>Curso Javascript Completo 2018</h1> 
+        <h2>Date</h2>
+        <h4>Definição e uso</h4>
+        <h5>Objeto do tipo Date sempre precisa ser instanciado, sempre vai declarar com o operador <strong><i>new</i></strong> Ex: </h5>
+        <div style="padding: 10px;background-color: #ffffcc;">
+	        <h5 style="display: inline;color: #e83e8c;"> var</h5><h5 style="display: inline;color: #007bff;"> data</h5><h5 style="display: inline;color: #fd7e14;"> = </h5><h5 style="display: inline;color: #e83e8c;">new</h5><h5 style="display: inline;color: #343a40;"> Date();</h5>
+        </div>
+        <h5>Se eu declarar sem passar valor como parâmetro ele por padrão me mostra a data atual. Ex: </h5>
+        <div style="padding: 10px;background-color: #ffffcc;"> <h5 style="display: inline;color: #e83e8c;"> var</h5><h5 style="display: inline;color: #007bff;"> data2</h5><h5 style="display: inline;color: #fd7e14;"> = </h5><h5 style="display: inline;color: #e83e8c;">new</h5><h5 style="display: inline;color: #343a40;"> Date();</h5><h5>data<br/>Sun Nov 18 2018 13:05:58 GMT-0200 (Horário de Verão de Brasília)</h5>
+        </div>
+        <h5>Posso tbm declarar passando uma data como parâmetro, assim a data será construída já com essa data. Ex: </h5>
+        <div style="padding: 10px;background-color: #ffffcc;"> <h5 style="display: inline;color: #e83e8c;"> var</h5><h5 style="display: inline;color: #007bff;"> data2</h5><h5 style="display: inline;color: #fd7e14;"> = </h5><h5 style="display: inline;color: #e83e8c;">new</h5><h5 style="display: inline;color: #343a40;"> Date(1983, 5, 16, 6, 15, 30, 500); //Onde: (ANO, MÊS, DIA, HORA, MINUTO, SEGUNDO, MILISSEGUNDO)</h5><h5>data<br/>Thu Jun 16 1983 06:15:30 GMT-0300 (Horário Padrão de Brasília)</h5><h5>Se o mês for declarado como 12, ele vai construir a data com o mês de janeiro do próximo ano. Ex:<br/><code>var data3 = new Date(2018, 12, 15) //Tue Jan 15 2019 00:00:00 GMT-0200 (Horário de Verão de Brasília)</code></h5>
+        </div>
+        <h4>Métodos e Propriedades</h4>
+        <h6>getDay()</h6>
+        <p class="text">Mostra o dia da semana. <code>data.getDay() 0</code><br/>domingo = 0... sábado = 6.</p>
+        <h6>getDate()</h6>
+        <p class="text">Mostra o dia do mês. <code>data.getDate() 18</code></p>
+        <h6>getMonth()</h6>
+        <p class="text">Mostra o mês. <code>data.getMonth() 10</code><br/>janeiro = 0... dezembro = 11.</p>
+        <h6>getYear()</h6>
+        <p class="text">Mostra o número de anos que se passaram após 1900 pórém caiu em desuso.<code>data.getYear() 118</code></p>
+        <h6>getFullYear()</h6>
+        <p class="text">Mostra o ano corrente.<code>data.getFullYear() 2018</code></p>
+        <h6>getHours()</h6>
+        <p class="text">Mostra a hora que foi declarada a variável.<code>data.getHours() 17</code></p>
+        <h6>getMinutes()</h6>
+        <p class="text">Mostra os minutos que foi declarada a variável.<code>data.getMinutes() 9</code></p>
+        <h6>get()</h6>
+        <p class="text">Mostra os milissegundos que foi declarada a variável.<code>data.getMilliseconds() 21</code></p>
+        <h6>getSeconds()</h6>
+        <p class="text">Mostra os segundos que foi declarada a variável.<code>data.getMilliseconds() 21</code></p>
+        <h6>getTime()</h6>
+        <p class="text">Mostra o timeStamp é o número de milissegundos que passaram a partir de 01/01/1970.<code>data.getTime() 1542568656600</code><br/>Atalho p/ timeStamp: <code>+new Date() 1542568713723</code></p>
+        <h6>setTime()</h6>
+        <p class="text">Conta quantos milissegundos passou a partir da data inicial(01/01/1970) usando o parâmetro como contador.Ex: <code>data.setTime(0) //0 //Wed Dec 31 1969 21:00:00 GMT-0300 (Horário Padrão de Brasília)</code></p>
+        <h6>setDate()</h6>
+        <p class="text">Vai receber o dia do mês passado por parâmetro. <code>data.setDate(23) //-691200000 o timeStamp está negativo pq o ano está antes de 1970. //Tue Dec 23 1969 21:00:00 GMT-0300 (Horário de Verão de Brasília)</code></p>
+        <h6>setYear()</h6>
+        <p class="text">Vai receber o ano passado por parâmetro. <code>data.setYear(1970) //30844800000 //Wed Dec 23 1970 21:00:00 GMT-0300 (Horário Padrão de Brasília)</code></p>
+        <h6>setMonth()</h6>
+        <p class="text">Vai receber o mês passado por parâmetro. <code>data.setMonth(10) //28252800000 //Mon Nov 23 1970 21:00:00 GMT-0300 (Horário Padrão de Brasília)</code></p>
+        <h6>setHours()</h6>
+        <p class="text">Vai receber a hora passada por parâmetro. <code>data.setHours(0) //28177200000 //Mon Nov 23 1970 00:00:00 GMT-0300 (Horário Padrão de Brasília)</code></p>
+        <h6>setMinutes()</h6>
+        <p class="text">Vai receber os minutos passados por parâmetro. <code>data.setMinutes(0) //28177200000 //Mon Nov 23 1970 21:00:00 GMT-0300 (Horário Padrão de Brasília)</code></p>
+        <h6>setSeconds()</h6>
+        <p class="text">Vai receber os segundos passados por parâmetro. <code>data.setSeconds(0) //28177200000 //Mon Nov 23 1970 21:00:00 GMT-0300 (Horário Padrão de Brasília)</code></p>
+        <h6>setMilliseconds()</h6>
+        <p class="text">Vai receber os milissegundos passados por parâmetro. <code>data.setMilliseconds(0) //28177200000 //Mon Nov 23 1970 21:00:00 GMT-0300 (Horário Padrão de Brasília)</code></p>
+
+			</div>
+		</div>
+	</div>
+	<script>
+		var data = new Date();
+		console.log(data.getDay());
+		console.log(data.getDate());
+		console.log(data.getMonth());
+		console.log(data.getYear());
+		console.log(data.getFullYear());
+		console.log(data.getHours());
+		console.log(data.getMinutes());
+		console.log(data.getMilliseconds());
+		console.log(data.getSeconds());
+		console.log(data.getTime());
+
+		var data2 = new Date(1983, 5, 16, 6, 15, 30, 500);
+		console.log(data2);
+	</script>
+	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+</body>
+</html>

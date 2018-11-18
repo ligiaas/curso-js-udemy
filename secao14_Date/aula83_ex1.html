@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Lógica de Programação</title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+</head>
+<body>
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12">
+				
+			</div>
+		</div>
+	</div>
+	<script>
+		var hj = new Date();
+		hj.setHours(0);
+		hj.setMinutes(0);
+		hj.setSeconds(0);
+		hj.setMilliseconds(0);
+		var aa = hj.getFullYear();
+		var dn = new Date(++aa, 5, 16);
+		console.log('aniversario', dn);
+		console.log('hoje', hj);
+
+		var tsdn = dn.getTime();
+		var tshj = hj.getTime();
+		console.log(tsdn);
+		console.log(tshj);
+
+		const umDiaTS = 24 * 60 * 60 * 1000; //p/ saber quantos milissegundos tem 1 dia multiplica 24h * 60min * 60seg * 1000mili;
+		var dif = tsdn - tshj;
+		var dias = (dif / umDiaTS).toFixed(0);
+
+		if(tsdn === tshj){
+			console.log('Parabéns pelo seu aniversario!');
+		}
+
+		if(tsdn > tshj){
+			console.log('Faltam ' + dias + ' dias para o seu aniversario.');
+		}
+	</script>
+	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+</body>
+</html>

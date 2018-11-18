@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Lógica de Programação</title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+</head>
+<body>
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12">
+				<h1>Curso Javascript Completo 2018</h1> 
+        <h2>Arrays</h2>
+        <h4>Métodos e Propriedades</h4>
+        <h6>legth</h6>
+        <p class="text">retorna o total de registros do array</p>
+        <h6>every()</h6>
+        <p class="text">executa uma função que retorna um booleano se o todos os ele do array são de determinado valor</p>
+        <h6>some()</h6>
+        <p class="text">executa uma função que retorna um booleano se ao menos um ele do array é de determinado valor</p>
+        <h6>filter()</h6>
+        <p class="text">executa uma função que retorna os elementos que correspondem a determinada condição</p>
+        <h6>forEach()</h6>
+        <p class="text">faz um loop dentro do array sem precisar criar uma variável incrementadora p/ percorrer o array, sem precisar usar o loop for/while.A cada índice do meu array eu vou executar uma função.</p>
+        <h6>indexOf()</h6>
+        <p class="text">executa uma função que informa o índice de determinado ele no array, contanto a partir da esquerda.</p>
+        <h6>lastIndexOf()</h6>
+        <p class="text">executa uma função que informa o índice de determinado ele no array, contanto a partir da direita.</p>
+        <h6>map()</h6>
+        <p class="text">faz uma interação e alteração em cada um dos el do array</p>
+				<h6>concat()</h6>
+				<p class="text">Serve pra juntar arrays, concatenar arrays</p>
+				<h6>join()</h6>
+				<p class="text">converte uma array em string, podendo passar um caracter separado como parâmetro.</p>
+				<h6>toString()</h6>
+				<p class="text">converte uma array em string, como caracter separador a vírgula.</p>
+				<h6>push()</h6>
+				<p class="text">serve para acrescentar el no array</p>
+				<h6>pop()</h6>
+				<p class="text">remove o último item do array e devolve o item removido pra quem o chamou</p>
+				<h6>shift()</h6>
+				<p class="text">igual ao pop() mas ao invés de remover o último, ele remove o primeiro item do array</p>
+				<h6>unshift()</h6>
+				<p class="text">igual ao push() mas ao invés de acrescentar no final, ele acrescenta no início do array</p>
+				<h6>reduce()</h6>
+				<p class="text">serve pra pegar um array e retornar um único valor, ele executa qq tipo de expressão mas deve-se passar os parâmetros anterior e atual, vc pode passar tbm o index e o próprio array como parâmetros. Serve tbm p/ concatenar strings em um array</p>
+				<h6>reverse()</h6>
+				<p class="text">Apenas inverte a ordem dos elementos em um array, é um método destrutivo, altera o array.</p>
+				<h6>slice()</h6>
+				<p class="text">retorna um pedaço de um array</p>
+				<h6>splice()</h6>
+				<p class="text">ele inclui, exclui, inclui no meio do array</p>
+			</div>
+		</div>
+	</div>
+	<script>
+		var arr =  [1,2,3,4,5,'6'];
+
+		// every
+		var arr1 =  [1,2,3,4,5];
+		var sohNumerosBoolean = arr1.every(function(el, index, obj) {
+			// console.log('el', el);
+			// console.log('index', index);
+			// console.log('obj', obj);
+			return typeof el === 'number';
+		});
+		console.log(sohNumerosBoolean); // true
+
+		// some
+		var arr2 =  [1,2,3,4,5,'6'];
+		var aoMenosUMNumero = arr2.some(function(el) {
+			return typeof el === 'string';
+		});
+		console.log(aoMenosUMNumero); // true
+
+		// filter
+		var arr3 =  ['1',2,3,4,5,'lili', 20, "30"];
+		var numerosFiltrados = arr3.filter(function(el, i, arr3) {
+			return typeof el === 'number';
+		});
+		console.log(numerosFiltrados); // [2,3,4,5,20]
+
+		// forEach
+		var arr4 =  ['1',2,3,4,5,'lili', 20, "30"];
+		var numeros = arr4.forEach(function(el, i, arr4) {
+			console.log('el = ', el, ' | i = ', i, ' | i - ', arr.toString())// el =  30  | i =  7  | i -  1,2,3,4,5,6
+		});
+
+		//indexOf
+		var arr5 =  ['1',2,3,4,5,'lili', 20, "30"];
+		var posicaoStr = arr5.indexOf(20, 5)
+		console.log('posicaoStr', posicaoStr); //posicaoStr 6
+		// é possível passar mais de um parâmetro, o 2º par serve p/ indicar a partir de qual posição ele deve começar a procura pelo el do 1º par, contando a partir da esquerda
+
+		//lastIndexOf
+		var arr6 =  ['1',20,3,4,5,'lili', 20, "30"];
+		var posicaoStr = arr6.lastIndexOf(20, 5)
+		console.log('posicaoStr', posicaoStr); //posicaoStr 1
+		// é possível passar mais de um parâmetro, o 2º par serve p/ indicar a partir de qual posição ele deve começar a procura pelo el do 1º par, contando a partir da direita
+
+		// map
+		var arr7 =  [1,2,3,4,5];
+		console.log(arr7); // [1, 2, 3, 4, 5]
+		var numerosModificados = arr7.map(function(el, i, arr7) {
+			return el * i;
+		});
+		console.log(numerosModificados); // [0, 2, 6, 12, 20]
+
+		// concat
+		var arr8 =  arr7.concat(arr6, 'olá Mundo!');
+		console.log(arr8); // [1, 2, 3, 4, 5, "1", 20, 3, 4, 5, "lili", 20, "30", "olá Mundo!"]
+		// ele não altera as arrays
+
+		// join
+		var str1 =  arr7.join(' -- ');
+		console.log(str1); // 1 -- 2 -- 3 -- 4 -- 5
+		// ele não altera as arrays
+
+		// toString
+		var str1 =  arr7.toString();
+		console.log(str1); // 1,2,3,4,5
+		// ele não altera as arrays
+
+		// push
+		var arr9 =  [1,2,3,4,5];
+		arr9.push(6);
+		console.log(arr9); // 1,2,3,4,5,6
+		// ele altera o array, é um método destrutivo
+
+		// pop
+		var arr10 =  [1,2,3,4,5];
+		var lastItem = arr10.pop();
+		console.log(lastItem); // 5
+		console.log(arr10); // 1,2,3,4,5
+		// ele altera o array, é um método destrutivo
+
+		// shift
+		var arr11 =  [1,2,3,4,5];
+		var firstItem = arr11.shift();
+		console.log(firstItem); // 1
+		console.log(arr11); // 2,3,4,5
+		// ele altera o array, é um método destrutivo
+
+		// unshift
+		var arr12 =  [1,2,3,4,5];
+		var firstItem = arr12.unshift(0);
+		console.log(firstItem); // 6
+		console.log(arr12); // 0,1,2,3,4,5
+		// ele altera o array, é um método destrutivo
+
+		// reduce
+		var arr13 =  [1,2,3,4,5];
+		var sumArr1 = arr13.reduce(function(anterior1, atual1){
+			return anterior1 + atual1;
+		});
+		console.log(arr13); // 1,2,3,4,5
+		console.log(sumArr1); // 15
+
+		// dá pra somar com o índice
+		var arr14 =  [1,2,3,4,5];
+		var sumArr2 = arr14.reduce(function(anterior2, atual2, i){
+			console.log('anterior2', anterior2, ' | atual2', atual2, ' | índice', i)
+			return anterior2 + atual2 + i;
+		});
+		console.log(arr14); // 1,2,3,4,5
+		console.log(sumArr2); // 25
+
+		// dá pra somar com o array tbm
+		// var arr15 =  [1,2,3,4,5];
+		// var sumArr3 = arr15.reduce(function(anterior3, atual3, i, arr15){
+		// 	console.log('anterior3', anterior3, ' | atual3', atual3, ' | índice', i, ' | arr15', arr15)
+		// 	return anterior3 + atual3 + i + arr15;
+		// });
+		// console.log(arr15); // 1,2,3,4,5
+		// console.log(sumArr3); // 25
+		// ele altera o array, é um método destrutivo
+
+		// reduce tbm servce pra concatenar strings
+		var testeReduce = ['1', '2', '3', '4', '5'].reduce(function(i, a){
+			return i + a;
+		});
+		console.log(testeReduce); // 12345 -> concatena da esq p/ direita
+
+		var testeReduce2 = ['1', '2', '3', '4', '5'].reduceRight(function(i, a){
+			return i + a;
+		});
+		console.log(testeReduce2); // 54321 -> concatena da direita p/ esq
+
+		// reverse
+		var arrRev = [10,20,30];
+		arrRev.reverse();
+		console.log(arrRev); // [30,20,10]
+		// é um método destrutivo, ele altera o array
+
+		// slice
+		var arr16 = [1,2,3,4,5,6,7,8,9];
+		console.log(arr16.slice(2)); // [3, 4, 5, 6, 7, 8, 9] mostra o array a partir do índice 3, ou seja, 2 + 1.
+		console.log(arr16.slice(2, 5)); // [3, 4, 5] mostra o array a partir do índice 3 até o índice 5, incluindo o 5. o 2º par é opcional
+		// ele não é um método destrutivo, não altera o array
+
+		// splice
+		var arr17 = [1,2,3,4,5,6,7,8,9];
+		// 1º par é a posição de onde começa a transformação, 2º par quantos el eu quero remover, 3º par quantos el eu quero incluir no array
+		// var arr17 = arr17.splice(2,0,'limão', 'melão') array declarado dessa forma sobreescreve o array original e o retorno dele será vazio
+		arr17.splice(2,3,'limão', 'melão') // a partir do índice 2 3 els são excluídos e os els 'limão' e 'melão' são incluídos
+		console.log(arr17);
+	</script>
+	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+</body>
+</html>

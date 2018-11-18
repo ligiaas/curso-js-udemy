@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Curso Javascript Completo 2018</title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+</head>
+<body>
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12">
+				<h1 class="title">Exercício</h1>
+				<div class="col-md-12">
+					<p class="text" id="p1">Mussum Ipsum, cacilds vidis litro abertis. Em pé sem cair, deitado sem dormir, sentado sem cochilar e fazendo pose. Nec orci ornare consequat. Praesent lacinia ultrices consectetur. Sed non ipsum felis. Tá deprimidis, eu conheço uma cachacis que pode alegrar sua vidis. Paisis, filhis, espiritis santis.</p>
+					<p class="text" id="p2">Quem num gosta di mim que vai caçá sua turmis! Todo mundo vê os porris que eu tomo, mas ninguém vê os tombis que eu levo! Copo furadis é disculpa de bebadis, arcu quam euismod magna. Atirei o pau no gatis, per gatis num morreus.</p>
+					<p class="text">Quem num gosta di mim que vai caçá sua turmis!</p>
+				</div>
+			</div>
+		</div>
+	</div>
+	<script>
+		(function() {
+			var p = document.querySelectorAll('p');
+			var x = 0;
+
+			while(p[x]){
+				p[x].innerHTML = formatTxt(p[x].innerHTML);
+				x++;
+			}
+
+			function formatTxt(text){
+				var maxLength = 200;
+				if(text.length <= maxLength) return text;
+				var subTxt = text.slice(0, maxLength);
+				return subTxt + '...';
+			}
+
+			/*while(p[x]){
+				var t = p[x].innerHTML;
+				var z = t.length;
+				var maxLength = 50;
+				if(z >= maxLength){
+					var nwT = t.slice(0, maxLength);
+					var ret = nwT + '...';
+					console.log(ret);
+					return p[x].innerHTML = ret;  
+				}
+				x++;
+			}*/
+		})();
+	</script>
+</body>
+</html>
+
+
+
+
+
+
