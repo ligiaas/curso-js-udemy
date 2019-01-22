@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Lógica de Programação</title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+</head>
+<body>
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12">
+				<h1>Curso Javascript Completo 2018</h1>
+        <h2>Temporizadores/Intervalos</h2>
+        <div style="padding: 10px;background-color: #cacaca;">
+	        <h4>JS é Single Thread / Thread única</h4>
+	        <h5>Somente um processo por vez é executado.</h5>
+	        <h5 style="color: purple;"><strong>O código principal e os temporizadores são executados numa única thread.</strong></h5>
+	        <p class="text">Quando já existe um processo na fila de execução o JS não insere outro. Apesar de usar o setInterval() p/ criar funções de tanto em tanto tempo, o fato do JS ser <b>single thread</b> não significa que esse tempo será respeitado rigorosamente. Isso vai depender se vc tem algum processo na fila de execução que vai demandar muito tempo pra ser executado.</p>
+        </div>
+        <h4>Definição e uso</h4>
+        <h5>São códigos JS que eu quero que execute depois de um tempo.</h5>
+        <h5><strong>Não são nativos da ECMAScript</strong> Em outras palavras, estão presente nos browsers "pendurados" em window. Não estão disponíveis no nodejs.</h5>
+        <h4>Métodos p/ Criar e Remover Temporizadores</h4>
+        <h6>setTimeout(fn, ms)</h6>
+        <p class="text">Executa uma função depois de determinado tempo.</p>
+        <h6>setInterval(fn, ms)</h6>
+        <p class="text">Cria um intervalo. A cada x tempo uma função é executada.</p>
+        <h6>clearTimeout(id)</h6>
+        <p class="text">Serve para limpar o setTimeout().</p>
+        <h6>clearInterval(id)</h6>
+        <p class="text">Serve para limpar o setInterval().</p>
+        <div id="time"></div>
+      </div>
+		</div>
+	</div>
+	<script>
+		var n = 0;
+		function somaUm(){
+			console.log('n', ++n);
+
+			if(n > 55){
+				clearInterval(interval);
+			}
+		}
+		var timeout = setTimeout(somaUm, 1000);
+		console.log('id do setTimeout: ', timeout);
+		var interval = setInterval(somaUm, 1000);
+		console.log('id do setInterval: ', interval);
+
+		var str = '';
+		var d = document.querySelector('#time');
+		var timeoutTeste = setTimeout(function(){
+			for (var i = 0; i < 1000; i++) {
+				str += 'i: ' + i + ' -- ';
+				d.textContent += str;
+			}
+		}, 3000);
+	</script>
+	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+</body>
+</html>

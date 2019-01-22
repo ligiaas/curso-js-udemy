@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Lógica de Programação</title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+</head>
+<body>
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12">
+				<div class="form-group">
+					<input type="text" class="form-control" id="cronometro" style="margin: 10px 0;">
+					<button id="iniciar" class="btn btn-primary">Iniciar</button>
+					<button id="pausar" class="btn btn-primary">Pausar</button>
+					<button id="zerar" class="btn btn-primary">Zerar</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<script>
+		(function(){
+			var $cronometro = document.querySelector('#cronometro');
+			var $iniciar = document.querySelector('#iniciar');
+			var $pausar = document.querySelector('#pausar');
+			var $zerar = document.querySelector('#zerar');
+
+			$iniciar.addEventListener('click', iniciar);
+			$pausar.addEventListener('click', pausa);
+			$zerar.addEventListener('click', zera);
+
+			var tempo = null;
+			var tempoInicial = 0;
+			var tempoPausado = 0;
+			var tempoDecorrido = 0;
+			var rodando = false;
+			
+			function iniciar() {
+				if(rodando) return;
+				tempoInicial = Date.now();
+				dispara();
+				rodando = true;
+			}
+
+			function dispara(tempoDecorrido){
+				let tmp = tempoDecorrido || 0;
+				tempo = setInterval(() => {
+					let now = Date.now();
+					let dif = now - tempoInicial;
+					$cronometro.value = formataMs(dif + tmp);
+				}, 100); 
+			}
+
+			function pausa() {
+				if(!$cronometro.value) return;
+				if(rodando){
+					clearInterval(tempo);
+					tempoPausado = Date.now();
+					tempoDecorrido += (tempoPausado - tempoInicial);
+				} else {
+					tempoInicial = Date.now();
+					dispara(tempoDecorrido);
+				}
+				rodando = !rodando;
+			}
+
+			function zera(){
+				tempoInicial = 0;
+				clearInterval(tempo);
+				$cronometro.value = '';
+			}
+			
+			function formataMs(ms){      
+        const MINUTO = 60 * 1000;                    
+        if(ms < 1000) {
+          return ms;
+        } else if(ms < MINUTO){     
+          var s = ms/1000;
+          s = parseInt(s);    
+          var c = ms - ( s * 1000); 
+          return s + ':' + c;
+        } else {
+          var m = ms /  MINUTO; 
+          m = parseInt(m);                         
+          return m + ":" + formataMs( ms - m * MINUTO );
+        }
+	    }
+
+		})()
+	</script>
+	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+</body>
+</html>
